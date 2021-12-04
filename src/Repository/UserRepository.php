@@ -22,10 +22,15 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
-    public function findUser(string $userName): ?User
+    public function findUser(string $email): ?User
     {
         return $this->findOneBy([
-            'username' => $userName,
+            'email' => $email,
         ]);
+    }
+
+    public function isUserExists(string $email): bool
+    {
+        return !is_null($this->findUser($email));
     }
 }

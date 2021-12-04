@@ -6,7 +6,7 @@
 namespace App\DataFixtures\Abstracts;
 
 use Doctrine\Persistence\ObjectManager;
-use App\Entity\Abstracts\RoleAbstract;
+use App\Entity\Abstracts\AbstractRole;
 
 abstract class AbstractRoleFixture extends AbstractFixture
 {
@@ -36,17 +36,17 @@ abstract class AbstractRoleFixture extends AbstractFixture
 
     abstract public function getRoleClass(): string;
 
-    public function createRoleEntity(): RoleAbstract
+    public function createRoleEntity(): AbstractRole
     {
-        /** @var RoleAbstract $entity */
-        $entity = $this->createEntity($this->getRoleClass(), RoleAbstract::class);
+        /** @var AbstractRole $entity */
+        $entity = $this->createEntity($this->getRoleClass(), AbstractRole::class);
 
         return $entity;
     }
 
-    public function createRole(ObjectManager $manager, string $role, string $name, string $tag): RoleAbstract
+    public function createRole(ObjectManager $manager, string $role, string $name, string $tag): AbstractRole
     {
-        $this->throwIsNotSubclass($this->getRoleClass(), RoleAbstract::class);
+        $this->throwIsNotSubclass($this->getRoleClass(), AbstractRole::class);
 
         if ($result = $manager->getRepository($this->getRoleClass())->findOneBy([
             'role' => $role

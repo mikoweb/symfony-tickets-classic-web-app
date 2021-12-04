@@ -16,7 +16,10 @@ use App\Entity\Traits\IrremovableTrait;
 use App\Entity\Traits\SoftDeleteableTrait;
 use App\Entity\Traits\TimestampableTrait;
 
-abstract class GroupAbstract implements GroupInterface, SoftDeleteableInterface, TimestampableInterface
+/**
+ * @ORM\MappedSuperclass
+ */
+abstract class AbstractGroup implements GroupInterface, SoftDeleteableInterface, TimestampableInterface
 {
     use SoftDeleteableTrait;
     use TimestampableTrait;

@@ -22,10 +22,15 @@ class AdminRepository extends ServiceEntityRepository
         parent::__construct($registry, Admin::class);
     }
 
-    public function findAdmin(string $adminName): ?Admin
+    public function findAdmin(string $email): ?Admin
     {
         return $this->findOneBy([
-            'username' => $adminName,
+            'email' => $email,
         ]);
+    }
+
+    public function isAdminExists(string $email): bool
+    {
+        return !is_null($this->findAdmin($email));
     }
 }

@@ -5,7 +5,7 @@
 
 namespace App\Entity;
 
-use App\Entity\Abstracts\GroupAbstract;
+use App\Entity\Abstracts\AbstractGroup;
 use App\Entity\Interfaces\GroupInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -22,7 +22,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ExclusionPolicy("all")
  */
-class UserGroup extends GroupAbstract implements GroupInterface
+class UserGroup extends AbstractGroup implements GroupInterface
 {
     /**
      * @var ArrayCollection|UserRole[]
@@ -45,7 +45,7 @@ class UserGroup extends GroupAbstract implements GroupInterface
     /**
      * @var ArrayCollection|Admin[]
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Admin", mappedBy="adminGroups")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Admin", mappedBy="groups")
      */
     protected ArrayCollection|Collection|array $admins;
 

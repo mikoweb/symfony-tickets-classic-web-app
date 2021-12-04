@@ -5,7 +5,7 @@
 
 namespace App\Entity;
 
-use App\Entity\Abstracts\RoleAbstract;
+use App\Entity\Abstracts\AbstractRole;
 use App\Entity\Interfaces\RoleInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -23,7 +23,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ExclusionPolicy("all")
  */
-class UserRole extends RoleAbstract implements RoleInterface
+class UserRole extends AbstractRole implements RoleInterface
 {
     /**
      * @var ArrayCollection|UserGroup[]

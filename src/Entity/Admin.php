@@ -5,6 +5,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Abstracts\AbstractUser;
 use App\Entity\Enums\RoleEnum;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -16,14 +17,24 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdminRepository")
  * @ORM\Table(name="admins")
+ * @ORM\AssociationOverrides({
+ *     @ORM\AssociationOverride(
+ *          name="groups",
+ *          joinTable=@ORM\JoinTable(
+ *              name="admins_groups",
+ *              joinColumns=@ORM\JoinColumn(name="admin_id", referencedColumnName="id"),
+ *              inverseJoinColumns=@ORM\JoinColumn(name="group_id", referencedColumnName="id")
+ *          )
+ *     )
+ * })
  *
- * @UniqueEntity(fields={"username"}, errorPath="username")
+ * @UniqueEntity(fields={"email"}, errorPath="email")
  *
  * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=true)
  *
  * @ExclusionPolicy("all")
  */
-class Admin extends User
+class Admin extends AbstractUser
 {
     const ROLE_DEFAULT = RoleEnum::ADMIN;
 
@@ -31,24 +42,6 @@ class Admin extends User
      * @var ArrayCollection|UserGroup[]
      *
      * @ORM\ManyToMany(targetEntity="UserGroup", inversedBy="admins", cascade={"persist"})
-     * @ORM\JoinTable(name="admins_groups",
-     *     joinColumns={@ORM\JoinColumn(name="admin_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
-     * )
      */
-    protected Collection|ArrayCollection|array $adminGroups;
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->adminGroups = new ArrayCollection();
-    }
-
-    /**
-     * @return UserGroup[]|ArrayCollection|Collection
-     */
-    public function getGroups(): Collection|ArrayCollection|array
-    {
-        return $this->adminGroups ?: $this->adminGroups = new ArrayCollection();
-    }
+    protected Collection|ArrayCollection|array $groups;
 }

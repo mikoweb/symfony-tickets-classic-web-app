@@ -13,7 +13,10 @@ use App\Entity\Traits\IrremovableTrait;
 use App\Entity\Traits\SoftDeleteableTrait;
 use App\Entity\Traits\TimestampableTrait;
 
-abstract class RoleAbstract implements RoleInterface, SoftDeleteableInterface, TimestampableInterface
+/**
+ * @ORM\MappedSuperclass
+ */
+abstract class AbstractRole implements RoleInterface, SoftDeleteableInterface, TimestampableInterface
 {
     use SoftDeleteableTrait;
     use TimestampableTrait;

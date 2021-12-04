@@ -6,14 +6,14 @@
 namespace App\DataFixtures\Abstracts;
 
 use Doctrine\Persistence\ObjectManager;
-use App\Entity\Abstracts\GroupAbstract;
-use App\Entity\Abstracts\RoleAbstract;
+use App\Entity\Abstracts\AbstractGroup;
+use App\Entity\Abstracts\AbstractRole;
 
 abstract class AbstractGroupFixture extends AbstractFixture
 {
     public function loadGroupRolesFromXml(string $filename, ObjectManager $manager): void
     {
-        $this->throwIsNotSubclass($this->getRoleClass(), RoleAbstract::class);
+        $this->throwIsNotSubclass($this->getRoleClass(), AbstractRole::class);
         $allRoles = $manager->getRepository($this->getRoleClass())->findAll();
 
         foreach ($allRoles as $role) {
@@ -44,25 +44,25 @@ abstract class AbstractGroupFixture extends AbstractFixture
     abstract public function getGroupClass(): string;
     abstract public function getRoleClass(): string;
 
-    public function createGroupEntity(): GroupAbstract
+    public function createGroupEntity(): AbstractGroup
     {
-        /** @var GroupAbstract $entity */
-        $entity = $this->createEntity($this->getGroupClass(), GroupAbstract::class);
+        /** @var AbstractGroup $entity */
+        $entity = $this->createEntity($this->getGroupClass(), AbstractGroup::class);
 
         return $entity;
     }
 
     public function addRoles(string $reference, array $roles): void
     {
-        /** @var GroupAbstract $group */
+        /** @var AbstractGroup $group */
         $group = $this->getReference($reference);
 
-        if (!$group instanceof GroupAbstract) {
-            throw new \UnexpectedValueException('Reference is not GroupAbstract');
+        if (!$group instanceof AbstractGroup) {
+            throw new \UnexpectedValueException('Reference is not AbstractGroup');
         }
 
         foreach ($roles as $role) {
-            /** @var RoleAbstract $roleEntity */
+            /** @var AbstractRole $roleEntity */
             $roleEntity = $this->getReference('Role.' . $role);
 
             if (!$group->hasRole($roleEntity)) {
@@ -76,9 +76,9 @@ abstract class AbstractGroupFixture extends AbstractFixture
         string $name,
         string $groupRole,
         bool $irremovable = true
-    ): GroupAbstract
+    ): AbstractGroup
     {
-        $this->throwIsNotSubclass($this->getGroupClass(), GroupAbstract::class);
+        $this->throwIsNotSubclass($this->getGroupClass(), AbstractGroup::class);
 
         if ($result = $manager->getRepository($this->getGroupClass())->findOneBy([
             'name' => $name

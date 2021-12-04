@@ -49,3 +49,19 @@ Enable virtual host:
 Restart apache:
 
     sudo systemctl restart apache2
+
+## Create Client User
+
+    php8.1 bin/console app:user:create user1@local.dev user1
+
+## Create password for Client User
+
+    php8.1 bin/console app:user:change-password user1@local.dev newpassword
+
+## Create Admin
+
+    php8.1 bin/console app:admin:create admin@local.dev admin
+
+## Change password for Admin
+
+    php8.1 bin/console app:admin:change-password admin@local.dev newpassword
