@@ -1,4 +1,4 @@
-# Symfony Ticket Classic Web App
+# Symfony Tickets Classic Web App
 
 Classic web application written in Symfony 6. Ticket management application with an admin panel.
 
