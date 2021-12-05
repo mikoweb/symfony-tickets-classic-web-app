@@ -20,9 +20,33 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        admin:
+            lazy: true
+            provider: admin
+            pattern: ^/admin
         main:
             lazy: true
             provider: client_user
+            form_login:
+                login_path: app_site_login
+                use_forward: true
+                check_path: app_site_login
+                post_only: true
+                enable_csrf: true
+
+                always_use_default_target_path: false
+                default_target_path: app_site_index
+                target_path_parameter: _target_path
+                use_referer: true
+
+                failure_path: null
+                failure_forward: false
+
+                username_parameter: _username
+                password_parameter: _password
+                csrf_parameter: _csrf_token
+            logout:
+                path: app_site_logout
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -33,5 +57,10 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/(_(profiler|wdt)|css|images|js)/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        # ADMIN
+        - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }
+        # SITE
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_CLIENT }
