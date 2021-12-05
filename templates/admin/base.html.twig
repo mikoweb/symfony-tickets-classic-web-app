@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}" class="no-js">
+<head>
+    <script>document.querySelector('html').classList.remove('no-js');</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Tickets - Admin Panel{% endblock %}</title>
+    <link rel="icon" href="{{ asset('favicon.svg') }}">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+</body>
+</html>

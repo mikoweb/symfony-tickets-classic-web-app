@@ -3,3 +3,9 @@ site:
         login:
             email: E-mail
             password: Hasło
+
+admin:
+    forms:
+        login:
+            email: E-mail
+            password: Hasło

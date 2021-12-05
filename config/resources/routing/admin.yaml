@@ -1,0 +1,8 @@
+app_admin_index:
+    path: /
+    controller: App\Controller\Admin\IndexController::index
+    methods: [GET]
+
+app_admin_security:
+    resource: admin/security.yaml
+    prefix: /

@@ -24,6 +24,26 @@ security:
             lazy: true
             provider: admin
             pattern: ^/admin
+            form_login:
+                login_path: app_admin_login
+                use_forward: true
+                check_path: app_admin_login
+                post_only: true
+                enable_csrf: true
+
+                always_use_default_target_path: false
+                default_target_path: app_admin_index
+                target_path_parameter: _target_path
+                use_referer: true
+
+                failure_path: null
+                failure_forward: false
+
+                username_parameter: login[email]
+                password_parameter: login[password]
+                csrf_parameter: _csrf_token
+            logout:
+                path: app_admin_logout
         main:
             lazy: true
             provider: client_user
