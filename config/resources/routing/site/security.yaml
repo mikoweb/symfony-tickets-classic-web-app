@@ -1,0 +1,9 @@
+app_site_login:
+    path: /login
+    controller: App\Controller\Site\SecurityController::login
+    methods: [GET,POST]
+
+app_site_logout:
+    path: /logout
+    controller: App\Controller\Site\SecurityController::logout
+    methods: [GET]

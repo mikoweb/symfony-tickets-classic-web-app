@@ -1,0 +1,8 @@
+app_site_index:
+    path: /
+    controller: App\Controller\Site\IndexController::index
+    methods: [GET]
+
+app_site_security:
+    resource: site/security.yaml
+    prefix: /
