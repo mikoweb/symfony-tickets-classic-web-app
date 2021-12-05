@@ -1,0 +1,41 @@
+{% extends 'knp_menu.html.twig' %}
+
+{%- block list -%}
+    {{ block('children') }}
+{%- endblock -%}
+
+{%- block item -%}
+    {% if matcher.isCurrent(item) %}
+        {% set breadcrumbs = knp_menu_get_breadcrumbs_array(item) %}
+        <div class="breadcrumb">
+            {% for breadcrumb in breadcrumbs %}
+                {% if loop.first %}
+                    <a href="{{ path('app_site_index') }}">
+                        ⌂
+                    </a>
+                    <span class="breadcrumb__separator">
+                        ›
+                    </span>
+                {% elseif loop.last %}
+                    <span class="breadcrumb__path">
+                        <strong>{{ breadcrumb.label }}</strong>
+                    </span>
+                {% else %}
+                    {% if breadcrumb.uri %}
+                        <a href="{{ breadcrumb.uri }}" class="breadcrumb__path">
+                            {{ breadcrumb.label }}
+                        </a>
+                    {% else %}
+                        <span class="breadcrumb__path">
+                            {{ breadcrumb.label }}
+                        </span>
+                    {% endif %}
+                    <span class="breadcrumb__separator">
+                        ›
+                    </span>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {{ block('list') }}
+{%- endblock -%}

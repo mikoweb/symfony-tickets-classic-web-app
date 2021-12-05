@@ -1,0 +1,4 @@
+routes:
+    app_site_index: Strona główna
+    app_site_ticket_index: Tickety
+    app_site_ticket_create: Utwórz ticket

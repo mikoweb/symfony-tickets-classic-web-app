@@ -1,0 +1,6 @@
+services:
+    app_site_menu:
+        class: Knp\Menu\MenuItem
+        factory: ['@App\Menu\SiteMenuBuilder', createMenu]
+        tags:
+            - { name: knp_menu.menu, alias: app_site_menu }
