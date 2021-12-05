@@ -9,7 +9,7 @@ Classic web application written in Symfony 6. Ticket management application with
 
 ## Install
 
-    php8.0 composer.phar install
+    php8.1 composer.phar install
     php8.1 bin/console doctrine:database:create
     php8.1 bin/console doctrine:schema:update --force
     php8.1 bin/console doctrine:fixtures:load --append --group=users
