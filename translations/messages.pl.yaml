@@ -1,0 +1,5 @@
+site:
+    forms:
+        login:
+            email: E-mail
+            password: Hasło

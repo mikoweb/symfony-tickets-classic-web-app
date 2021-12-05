@@ -5,17 +5,28 @@
 
 namespace App\Controller\Site;
 
+use App\Form\Site\LoginType;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(AuthenticationUtils $authenticationUtils, Request $request): Response
     {
+        $lastUsername = $authenticationUtils->getLastUsername();
+        $form = $this->createForm(LoginType::class, ['email' => $lastUsername], [
+            'method' => 'post',
+            'action' => $this->generateUrl('app_site_login'),
+        ]);
+
+        $form->handleRequest($request);
+
         return $this->render('site/login/index.html.twig', [
-            'last_username' => $authenticationUtils->getLastUsername(),
+            'form' => $form->createView(),
+            'last_username' => $lastUsername,
             'error' => $authenticationUtils->getLastAuthenticationError(),
         ]);
     }

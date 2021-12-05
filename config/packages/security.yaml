@@ -42,8 +42,8 @@ security:
                 failure_path: null
                 failure_forward: false
 
-                username_parameter: _username
-                password_parameter: _password
+                username_parameter: login[email]
+                password_parameter: login[password]
                 csrf_parameter: _csrf_token
             logout:
                 path: app_site_logout
@@ -57,10 +57,10 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/(_(profiler|wdt)|css|images|js)/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(_(profiler|wdt)|css|images|js)/, roles: [IS_AUTHENTICATED_FULLY, IS_AUTHENTICATED_ANONYMOUSLY] }
         # ADMIN
-        - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login$, role: [IS_AUTHENTICATED_FULLY, IS_AUTHENTICATED_ANONYMOUSLY] }
         - { path: ^/admin/, role: ROLE_ADMIN }
         # SITE
-        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login$, roles: [IS_AUTHENTICATED_FULLY, IS_AUTHENTICATED_ANONYMOUSLY] }
         - { path: ^/, roles: ROLE_CLIENT }
