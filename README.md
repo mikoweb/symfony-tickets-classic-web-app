@@ -67,3 +67,7 @@ Restart apache:
 ### Change password for Admin
 
     php8.1 bin/console app:admin:change-password admin@local.dev newpassword
+
+## Copyrights
+
+Copyright (c) Rafał Mikołajun 2021.
