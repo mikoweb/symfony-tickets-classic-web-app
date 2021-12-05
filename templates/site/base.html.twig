@@ -9,6 +9,18 @@
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
+    {% block flashes %}
+        {% for message in app.flashes('site_success') %}
+            <p>
+                <strong>{{ message }}</strong>
+            </p>
+        {% endfor %}
+        {% for message in app.flashes('site_error') %}
+            <p>
+                <strong>{{ message }}</strong>
+            </p>
+        {% endfor %}
+    {% endblock %}
     {{ knp_menu_render('app_site_menu', {
         'template': 'site/menu/template.html.twig',
         'currentClass': 'active',

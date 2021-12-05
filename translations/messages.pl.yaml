@@ -3,6 +3,16 @@ site:
         login:
             email: E-mail
             password: Hasło
+        ticket:
+            topic: Temat
+            title: Tytuł
+            email: E-mail
+            text: Wiadomość
+            file: Plik
+            send: Wyślij
+    message:
+        ticket_send: Zgłoszenie zostało wysłane.
+        ticket_send_error: Wystąpił błąd podczas wysyłania zgłoszenia.
 
 admin:
     forms:
