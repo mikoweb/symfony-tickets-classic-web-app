@@ -5,9 +5,11 @@
 
 namespace App\MessageHandler\Ticket;
 
+use App\Event\Ticket\TicketSentEvent;
 use App\Message\Ticket\SendTicketMessage;
 use App\Uploader\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use InvalidArgumentException;
 
@@ -15,11 +17,17 @@ final class SendTicketHandler implements MessageHandlerInterface
 {
     private EntityManagerInterface $entityManager;
     private FileUploader $uploader;
+    private EventDispatcherInterface $eventDispatcher;
 
-    public function __construct(EntityManagerInterface $entityManager, FileUploader $uploader)
+    public function __construct(
+        EntityManagerInterface $entityManager,
+        FileUploader $uploader,
+        EventDispatcherInterface $eventDispatcher
+    )
     {
         $this->entityManager = $entityManager;
         $this->uploader = $uploader;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     public function __invoke(SendTicketMessage $message): void
@@ -38,5 +46,7 @@ final class SendTicketHandler implements MessageHandlerInterface
 
         $this->entityManager->persist($ticket);
         $this->entityManager->flush();
+
+        $this->eventDispatcher->dispatch(new TicketSentEvent($ticket));
     }
 }
