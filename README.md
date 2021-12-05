@@ -54,7 +54,7 @@ Restart apache:
 
     php8.1 bin/console app:user:create user1@local.dev user1
 
-## Create password for Client User
+## Change password for Client User
 
     php8.1 bin/console app:user:change-password user1@local.dev newpassword
 
