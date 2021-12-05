@@ -6,3 +6,7 @@ app_site_index:
 app_site_security:
     resource: site/security.yaml
     prefix: /
+
+app_site_ticket:
+    resource: site/ticket.yaml
+    prefix: /ticket

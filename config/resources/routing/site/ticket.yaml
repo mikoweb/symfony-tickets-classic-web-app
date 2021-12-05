@@ -1,0 +1,9 @@
+app_site_ticket_index:
+    path: /
+    controller: App\Controller\Site\TicketController::index
+    methods: [GET]
+
+app_site_ticket_create:
+    path: /create
+    controller: App\Controller\Site\TicketController::create
+    methods: [GET,POST]
