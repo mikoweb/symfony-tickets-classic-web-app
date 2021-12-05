@@ -6,4 +6,5 @@
           icon-class="icons:ticket">
         <item role="ROLE_TICKET_CREATE" route="app_site_ticket_create" />
     </item>
+    <item role="ROLE_CLIENT" route="app_site_logout" icon-class="icons:logout" />
 </menu>
