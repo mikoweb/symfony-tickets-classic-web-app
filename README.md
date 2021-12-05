@@ -13,6 +13,7 @@ Classic web application written in Symfony 6. Ticket management application with
     php8.1 bin/console doctrine:database:create
     php8.1 bin/console doctrine:schema:update --force
     php8.1 bin/console doctrine:fixtures:load --append --group=users
+    php8.1 bin/console doctrine:fixtures:load --append --group=ticket_topics
 
 ### Create Apache Virtual Host
 
