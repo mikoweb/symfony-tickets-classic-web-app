@@ -10,6 +10,7 @@
         <role role="ROLE_ADMIN_TICKETS_LIST" />
     </group>
     <group tag="tickets">
+        <role role="ROLE_TICKETS_LIST" />
         <role role="ROLE_TICKET_CREATE" />
     </group>
 </roles>

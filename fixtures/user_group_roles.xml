@@ -2,6 +2,7 @@
 <groups>
     <group reference="Group.Client">
         <role>ROLE_CLIENT</role>
+        <role>ROLE_TICKETS_LIST</role>
         <role>ROLE_TICKET_CREATE</role>
     </group>
     <group reference="Group.Admin" allroles="true" />
