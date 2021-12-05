@@ -10,6 +10,7 @@ site:
             text: Wiadomość
             file: Plik
             send: Wyślij
+            invalid_file: Nieobsługiwany typ pliku.
     message:
         ticket_send: Zgłoszenie zostało wysłane.
         ticket_send_error: Wystąpił błąd podczas wysyłania zgłoszenia.
