@@ -4,3 +4,9 @@ services:
         factory: ['@App\Menu\SiteMenuBuilder', createMenu]
         tags:
             - { name: knp_menu.menu, alias: app_site_menu }
+
+    app_admin_menu:
+        class: Knp\Menu\MenuItem
+        factory: ['@App\Menu\AdminMenuBuilder', createMenu]
+        tags:
+            - { name: knp_menu.menu, alias: app_admin_menu }

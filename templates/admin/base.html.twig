@@ -9,6 +9,16 @@
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
+    {{ knp_menu_render('app_admin_menu', {
+        'template': 'admin/menu/template.html.twig',
+        'currentClass': 'active',
+        'ancestorClass': 'active open',
+        'compressed': true
+    }) }}
+    {{ knp_menu_render('app_admin_menu', {
+        'template': 'admin/menu/breadcrumb.html.twig',
+        'compressed': true
+    }) }}
     {% block body %}{% endblock %}
     {% block javascripts %}{% endblock %}
 </body>
