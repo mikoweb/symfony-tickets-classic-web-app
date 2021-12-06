@@ -36,6 +36,12 @@ class AdminRepository extends ServiceEntityRepository
 
     public function getFirstAdmin(): ?Admin
     {
-        return null;
+        $admins = $this->createQueryBuilder('a')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+        ;
+
+        return $admins[0] ?? null;
     }
 }
