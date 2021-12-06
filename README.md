@@ -119,6 +119,11 @@ Web panel: `http://(server IP|Hostname):15672` - login: guest; password: guest;
  -------------------------- ---------- -------- ------ ----------------------------------- 
  ```
 
+## TODO
+
+* Front-end
+* Unit Tests
+
 ## Copyrights
 
 Copyright (c) Rafał Mikołajun 2021.
