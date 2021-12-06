@@ -20,3 +20,7 @@ admin:
         login:
             email: E-mail
             password: Hasło
+
+email:
+    ticket_notification:
+        subject: Otrzymałeś nowe zgłoszenie od użytkownika.

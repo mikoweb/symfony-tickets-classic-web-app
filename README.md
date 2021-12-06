@@ -75,7 +75,7 @@ Restart apache:
 
 Set `MAILER_DSN` on file `.env.local`:
 
-    MAILER_DSN=smtp://user:pass@smtp.symfony-tickets.dev:port
+    MAILER_DSN=smtp://user:pass@smtp.symfony-tickets.dev:25
 
 In this project, emails are sent asynchronously. You need to set `MESSENGER_TRANSPORT_DSN` to work with RabbitMQ.
 
