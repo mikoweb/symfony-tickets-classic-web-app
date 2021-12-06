@@ -33,4 +33,9 @@ class AdminRepository extends ServiceEntityRepository
     {
         return !is_null($this->findAdmin($email));
     }
+
+    public function getFirstAdmin(): ?Admin
+    {
+        return null;
+    }
 }

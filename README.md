@@ -85,7 +85,7 @@ To send emails you need:
 
     php8.1 bin/console messenger:consume async
 
-You can also [Supervisor Configuration](https://symfony.com/doc/current/messenger.html#supervisor-configuration)/
+You can also [Supervisor Configuration](https://symfony.com/doc/current/messenger.html#supervisor-configuration).
 
 ### RabbitMQ Install
 
