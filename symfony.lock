@@ -290,6 +290,9 @@
             "config/packages/stof_doctrine_extensions.yaml"
         ]
     },
+    "symfony/amqp-messenger": {
+        "version": "v6.0.0"
+    },
     "symfony/apache-pack": {
         "version": "1.0",
         "recipe": {
@@ -351,6 +354,9 @@
         "version": "v3.0.0"
     },
     "symfony/doctrine-bridge": {
+        "version": "v6.0.0"
+    },
+    "symfony/doctrine-messenger": {
         "version": "v6.0.0"
     },
     "symfony/dom-crawler": {

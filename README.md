@@ -6,6 +6,8 @@ Classic web application written in Symfony 6. Ticket management application with
 
     APP_ENV
     DATABASE_URL
+    MESSENGER_TRANSPORT_DSN
+    MAILER_DSN
 
 ## Install
 
@@ -68,6 +70,50 @@ Restart apache:
 ### Change password for Admin
 
     php8.1 bin/console app:admin:change-password admin@local.dev newpassword
+
+## Mailer
+
+Set `MAILER_DSN` on file `.env.local`:
+
+    MAILER_DSN=smtp://user:pass@smtp.symfony-tickets.dev:port
+
+In this project, emails are sent asynchronously. You need to set `MESSENGER_TRANSPORT_DSN` to work with RabbitMQ.
+
+    MESSENGER_TRANSPORT_DSN=amqp://guest:guest@localhost:5672/%2f/symfony_tickets_messages
+
+To send emails you need:
+
+    php8.1 bin/console messenger:consume async
+
+You can also [Supervisor Configuration](https://symfony.com/doc/current/messenger.html#supervisor-configuration)/
+
+### RabbitMQ Install
+
+* https://computingforgeeks.com/how-to-install-latest-rabbitmq-server-on-ubuntu-linux/
+
+
+    sudo apt install erlang
+    sudo apt install rabbitmq-server
+    sudo rabbitmq-plugins enable rabbitmq_management
+
+Web panel: `http://(server IP|Hostname):15672` - login: guest; password: guest;
+
+## Routes
+
+```
+ -------------------------- ---------- -------- ------ ----------------------------------- 
+Name                       Method     Scheme   Host   Path
+ -------------------------- ---------- -------- ------ -----------------------------------  
+app_site_index             GET        ANY      ANY    /                                  
+app_site_login             GET|POST   ANY      ANY    /login                             
+app_site_logout            GET        ANY      ANY    /logout                            
+app_site_ticket_index      GET        ANY      ANY    /ticket/                           
+app_site_ticket_create     GET|POST   ANY      ANY    /ticket/create                     
+app_admin_index            GET        ANY      ANY    /admin/                            
+app_admin_login            GET|POST   ANY      ANY    /admin/login                       
+app_admin_logout           GET        ANY      ANY    /admin/logout
+ -------------------------- ---------- -------- ------ ----------------------------------- 
+ ```
 
 ## Copyrights
 
