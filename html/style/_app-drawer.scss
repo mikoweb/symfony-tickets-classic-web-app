@@ -1,0 +1,16 @@
+.app-drawer {
+  &.ready {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  &__menu-button {
+    padding: 8px 0;
+    margin-left: -10px;
+  }
+
+  &__content {
+    padding: 0 16px;
+  }
+}

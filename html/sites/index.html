@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <script>document.querySelector('html').classList.remove('no-js');</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index page</title>
+    <link rel="icon" href="./favicon.svg">
+    <link href="../bundle/style.css" rel="stylesheet">
+</head>
+<body>
+    <mwc-linear-progress progress="0" wc-ready class="app-progress active" id="app-progress"></mwc-linear-progress>
+    <header class="header">
+        <div class="header-toolbar">
+            <mwc-icon-button icon="menu"
+                             class="header-toolbar__item app-drawer-toggle"
+                             data-drawer-id="appDrawer"
+                             aria-label="Open Menu"
+                             role="button"></mwc-icon-button>
+            <h1 class="header__title header-toolbar__item header__title">App Name</h1>
+            <app-username-display class="header-toolbar__item header-toolbar__hello"></app-username-display>
+        </div>
+    </header>
+    <mwc-drawer hasHeader type="modal" wc-hidden class="app-drawer" id="appDrawer">
+            <span slot="title">
+                <mwc-icon-button icon="menu"
+                                 class="app-drawer__menu-button app-drawer-toggle"
+                                 data-drawer-id="appDrawer"
+                                 aria-label="Open Menu"
+                                 role="button"></mwc-icon-button>
+            </span>
+        <div class="app-drawer__content">
+            <p>Drawer content!</p>
+            <mwc-icon-button icon="gesture"></mwc-icon-button>
+            <mwc-icon-button icon="gavel"></mwc-icon-button>
+        </div>
+    </mwc-drawer>
+    <main class="main">
+        <div class="container">
+            <h2 class="h2">Enter The Username</h2>
+            <app-username-input wc-lazy></app-username-input>
+        </div>
+    </main>
+    <script type="module" src="../src/index.js"></script>
+</body>
+</html>

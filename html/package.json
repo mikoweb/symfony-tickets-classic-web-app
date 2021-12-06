@@ -1,0 +1,58 @@
+{
+  "name": "lit-boilerplate",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "gulp": "gulp",
+    "serve": "web-dev-server --node-resolve --open /sites/",
+    "test": "web-test-runner",
+    "test:watch": "web-test-runner --watch"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@esm-bundle/chai": "^4.3.4-fix.0",
+    "@open-wc/testing": "^3.0.2",
+    "@web/dev-server": "^0.1.26",
+    "@web/test-runner": "^0.13.20",
+    "@web/test-runner-core": "^0.10.22",
+    "@web/test-runner-mocha": "^0.7.5",
+    "@web/test-runner-playwright": "^0.8.8",
+    "eslint": "^8.1.0",
+    "eslint-plugin-lit": "^1.6.1",
+    "eslint-plugin-wc": "^1.3.2",
+    "fs-extra": "^10.0.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-lit-styles": "^2.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-template": "^5.0.0",
+    "gulp-uglify": "^3.0.2",
+    "mocha": "^9.1.3",
+    "node-sass-tilde-importer": "^1.0.2",
+    "plugin-error": "^1.0.1",
+    "rollup": "^2.60.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.43.4"
+  },
+  "dependencies": {
+    "@material/mwc-drawer": "^0.25.3",
+    "@material/mwc-icon": "^0.25.3",
+    "@material/mwc-icon-button": "^0.25.3",
+    "@material/mwc-linear-progress": "^0.25.3",
+    "@material/mwc-textfield": "^0.25.3",
+    "bootstrap": "^5.1.3",
+    "ftdomdelegate": "^5.0.0",
+    "lit": "^2.0.2",
+    "material-design-color": "^2.3.2",
+    "mobx": "^6.3.6"
+  }
+}

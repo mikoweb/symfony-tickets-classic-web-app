@@ -1,0 +1,10 @@
+body {
+  --mdc-icon-size: 24px;
+}
+
+mwc-icon {
+  overflow: hidden;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
