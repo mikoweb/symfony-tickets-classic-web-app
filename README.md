@@ -91,10 +91,11 @@ You can also [Supervisor Configuration](https://symfony.com/doc/current/messenge
 
 * https://computingforgeeks.com/how-to-install-latest-rabbitmq-server-on-ubuntu-linux/
 
-
-    sudo apt install erlang
-    sudo apt install rabbitmq-server
-    sudo rabbitmq-plugins enable rabbitmq_management
+```
+sudo apt install erlang
+sudo apt install rabbitmq-server
+sudo rabbitmq-plugins enable rabbitmq_management
+```
 
 Web panel: `http://(server IP|Hostname):15672` - login: guest; password: guest;
 
