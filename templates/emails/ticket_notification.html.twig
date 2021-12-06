@@ -1,5 +1,7 @@
 <p>
     Otrzymałeś zgłoszenie od użytkownika.
-    Aby je wyświetlić naciśnij <a target="_blank" href="#">tutaj</a>.
-    {# TODO set path to link #}
+    Aby je wyświetlić naciśnij
+    <a target="_blank" href="{{ url('app_admin_ticket_show', {'slug': ticket.slug}) }}">
+        tutaj
+    </a>.
 </p>

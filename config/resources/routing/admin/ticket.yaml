@@ -1,0 +1,9 @@
+app_admin_ticket_index:
+    path: /
+    controller: App\Controller\Admin\TicketController::index
+    methods: [GET]
+
+app_admin_ticket_show:
+    path: /show/{slug}
+    controller: App\Controller\Admin\TicketController::show
+    methods: [GET]

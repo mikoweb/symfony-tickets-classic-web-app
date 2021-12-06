@@ -8,6 +8,7 @@
     </group>
     <group tag="admin_tickets">
         <role role="ROLE_ADMIN_TICKETS_LIST" />
+        <role role="ROLE_ADMIN_TICKET_SHOW" />
     </group>
     <group tag="tickets">
         <role role="ROLE_TICKETS_LIST" />

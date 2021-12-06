@@ -6,3 +6,7 @@ app_admin_index:
 app_admin_security:
     resource: admin/security.yaml
     prefix: /
+
+app_admin_ticket:
+    resource: admin/ticket.yaml
+    prefix: /ticket

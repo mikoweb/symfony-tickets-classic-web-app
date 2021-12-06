@@ -5,6 +5,7 @@ Classic web application written in Symfony 6. Ticket management application with
 ## env options (.env.local)
 
     APP_ENV
+    APP_ITEMS_PER_PAGE
     DATABASE_URL
     MESSENGER_TRANSPORT_DSN
     MAILER_DSN
@@ -103,16 +104,18 @@ Web panel: `http://(server IP|Hostname):15672` - login: guest; password: guest;
 
 ```
  -------------------------- ---------- -------- ------ ----------------------------------- 
-Name                       Method     Scheme   Host   Path
- -------------------------- ---------- -------- ------ -----------------------------------  
-app_site_index             GET        ANY      ANY    /                                  
-app_site_login             GET|POST   ANY      ANY    /login                             
-app_site_logout            GET        ANY      ANY    /logout                            
-app_site_ticket_index      GET        ANY      ANY    /ticket/                           
-app_site_ticket_create     GET|POST   ANY      ANY    /ticket/create                     
-app_admin_index            GET        ANY      ANY    /admin/                            
-app_admin_login            GET|POST   ANY      ANY    /admin/login                       
-app_admin_logout           GET        ANY      ANY    /admin/logout
+  Name                       Method     Scheme   Host   Path                               
+ -------------------------- ---------- -------- ------ -----------------------------------         
+  app_site_index             GET        ANY      ANY    /                                  
+  app_site_login             GET|POST   ANY      ANY    /login                             
+  app_site_logout            GET        ANY      ANY    /logout                            
+  app_site_ticket_index      GET        ANY      ANY    /ticket/                           
+  app_site_ticket_create     GET|POST   ANY      ANY    /ticket/create                     
+  app_admin_index            GET        ANY      ANY    /admin/                            
+  app_admin_login            GET|POST   ANY      ANY    /admin/login                       
+  app_admin_logout           GET        ANY      ANY    /admin/logout                      
+  app_admin_ticket_index     GET        ANY      ANY    /admin/ticket/                     
+  app_admin_ticket_show      GET        ANY      ANY    /admin/ticket/show/{slug}          
  -------------------------- ---------- -------- ------ ----------------------------------- 
  ```
 

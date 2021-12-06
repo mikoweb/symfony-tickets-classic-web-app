@@ -1,0 +1,26 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <dl>
+        <dt>Id</dt>
+        <dd>{{ ticket.id }}</dd>
+        <dt>Tytuł</dt>
+        <dd>{{ ticket.title }}</dd>
+        <dt>Temat</dt>
+        <dd>{{ ticket.topic.name }}</dd>
+        <dt>Slug</dt>
+        <dd>{{ ticket.slug }}</dd>
+        <dt>Email</dt>
+        <dd>{{ ticket.email }}</dd>
+        <dt>Wiadomość</dt>
+        <dd>{{ ticket.text|nl2br }}</dd>
+        {% if ticket.filename is not null %}
+            <dt>Plik</dt>
+            <dd>
+                <a target="_blank" href="{{ asset('uploads/' ~ ticket.filename) }}">
+                    {{ ticket.filename }}
+                </a>
+            </dd>
+        {% endif %}
+    </dl>
+{% endblock %}

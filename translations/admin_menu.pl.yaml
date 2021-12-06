@@ -1,3 +1,4 @@
 routes:
     app_admin_index: Panel administratora
     app_admin_logout: Wyloguj
+    app_admin_ticket_index: Zgłoszenia

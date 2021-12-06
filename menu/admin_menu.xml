@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menu>
     <item role="ROLE_ADMIN" route="app_admin_index" icon-class="icons:home" />
+    <item role="ROLE_ADMIN_TICKETS_LIST" route="app_admin_ticket_index" icon-class="icons:ticket" />
     <item role="ROLE_ADMIN" route="app_admin_logout" icon-class="icons:logout" />
 </menu>

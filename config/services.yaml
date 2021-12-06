@@ -10,3 +10,4 @@ imports:
 parameters:
     locale: '%env(resolve:LOCALE)%'
     app_upload_directory: '%kernel.project_dir%/public/uploads'
+    app_items_per_page: '%env(resolve:APP_ITEMS_PER_PAGE)%'

@@ -1,0 +1,12 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <ul>
+    {% for ticket in pagination %}
+        <li>
+            <a href="{{ path('app_admin_ticket_show', {'slug': ticket.slug}) }}">{{ ticket.title }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+    {{ knp_pagination_render(pagination) }}
+{% endblock %}

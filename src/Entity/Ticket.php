@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Uid\UuidV4;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TicketRepository")
  * @ORM\Table(name="tickets")
  *
  * @UniqueEntity(fields={"slug"}, errorPath="slug")
