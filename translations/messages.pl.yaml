@@ -3,6 +3,7 @@ site:
         login:
             email: E-mail
             password: Hasło
+            remember_me: Zapamiętaj mnie
         ticket:
             topic: Temat
             title: Tytuł

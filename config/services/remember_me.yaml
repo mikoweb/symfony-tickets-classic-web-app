@@ -1,0 +1,4 @@
+services:
+    Symfony\Bridge\Doctrine\Security\RememberMe\DoctrineTokenProvider:
+        arguments:
+            - '@Doctrine\DBAL\Connection'

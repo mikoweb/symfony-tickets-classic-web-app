@@ -1,4 +1,5 @@
 imports:
+    - { resource: 'services/remember_me.yaml' }
     - { resource: 'services/autowire.yaml' }
     - { resource: 'services/menus.yaml' }
 
