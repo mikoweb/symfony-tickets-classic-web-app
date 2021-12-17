@@ -3,7 +3,7 @@ import '@material/mwc-icon/mwc-icon.js';
 import '@material/mwc-icon-button/mwc-icon-button.js';
 import '@material/mwc-drawer/mwc-drawer.js';
 import '@material/mwc-linear-progress/mwc-linear-progress.js';
-
-// internal - global scope
-import '../elements/app-username-display/app-username-display.js';
-import '../elements/app-username-input/app-username-input.js';
+import '@material/mwc-textfield/mwc-textfield.js';
+import '@material/mwc-formfield/mwc-formfield.js';
+import '@material/mwc-checkbox/mwc-checkbox.js';
+import '@material/mwc-button/mwc-button.js';

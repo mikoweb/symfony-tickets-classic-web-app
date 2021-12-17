@@ -1,0 +1,61 @@
+.body-login {
+  padding-top: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.login-window {
+  background: $clr-grey-100;
+  border: 1px solid $clr-grey-500;
+  padding: 30px;
+  max-width: 480px;
+  min-width: 480px;
+  min-height: 358px;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 520px) {
+    min-width: 300px;
+    max-width: none;
+    width: 100%;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    padding: 0;
+    line-height: 1;
+  }
+
+  &__field {
+    display: block;
+    margin: 15px 0;
+  }
+
+  &__remember-me {
+    display: block;
+    margin: 15px 0 0;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: end;
+  }
+
+  mwc-textfield {
+    width: 100%;
+  }
+
+  mwc-button {
+    --mdc-button-horizontal-padding: 25px;
+  }
+}

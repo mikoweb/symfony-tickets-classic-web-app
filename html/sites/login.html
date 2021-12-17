@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <script>document.querySelector('html').classList.remove('no-js');</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index page</title>
+    <link rel="icon" href="./favicon.svg">
+    <link href="../bundle/style.css" rel="stylesheet">
+</head>
+<body class="body-login">
+    <mwc-linear-progress progress="0" wc-ready class="app-progress active" id="app-progress"></mwc-linear-progress>
+    <div class="container">
+        <section class="login-window">
+            <h2 class="h2 login-window__title">Logowanie</h2>
+            <form class="login-window__form form-behavior">
+                <div class="login-window__field">
+                    <mwc-textfield
+                            wc-lazy
+                            outlined
+                            label="E-mail"
+                            type="email"
+                            name="login[email]"
+                            required>
+                    </mwc-textfield>
+                </div>
+                <div class="login-window__field">
+                    <mwc-textfield
+                            wc-lazy
+                            outlined
+                            label="Hasło"
+                            type="password"
+                            name="login[password]"
+                            required>
+                    </mwc-textfield>
+                </div>
+                <div class="login-window__remember-me">
+                    <mwc-formfield label="Zapamiętaj mnie" wc-lazy>
+                        <mwc-checkbox name="login[remember_me]" value="1"></mwc-checkbox>
+                    </mwc-formfield>
+                </div>
+                <input type="hidden" name="_target_path" value="/">
+                <input type="hidden" name="_csrf_token" value="token">
+                <div class="login-window__button">
+                    <mwc-button raised label="Zaloguj się" type="submit"></mwc-button>
+                </div>
+            </form>
+        </section>
+    </div>
+    <script type="module" src="../src/index.js"></script>
+</body>
+</html>
