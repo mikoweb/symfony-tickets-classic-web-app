@@ -2,9 +2,14 @@ body {
   --mdc-icon-size: 24px;
 }
 
-mwc-icon {
+mwc-icon.icon-24 {
   overflow: hidden;
   width: 24px;
   height: 24px;
   display: inline-block;
+}
+
+mwc-icon.inverted {
+  background-color: $clr-grey-400;
+  color: #fff;
 }

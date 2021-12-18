@@ -8,3 +8,6 @@ import '@material/mwc-textfield/mwc-textfield.js';
 import '@material/mwc-formfield/mwc-formfield.js';
 import '@material/mwc-checkbox/mwc-checkbox.js';
 import '@material/mwc-button/mwc-button.js';
+import '@material/mwc-list/mwc-list.js';
+import '@material/mwc-list/mwc-list-item.js';
+import '@material/mwc-menu/mwc-menu.js';

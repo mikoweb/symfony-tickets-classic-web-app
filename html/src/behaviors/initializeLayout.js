@@ -3,6 +3,7 @@ import DrawerToggleBehavior from './layout/DrawerToggleBehavior.js';
 import AppProgressBehavior from './layout/AppProgressBehavior.js';
 import FormBehavior from './FormBehavior.js';
 import AppDrawerBehavior from './layout/AppDrawerBehavior';
+import MenuButtonBehavior from './elements/MenuButtonBehavior';
 
 export default () => {
     layoutReady(() => {
@@ -27,6 +28,10 @@ export default () => {
 
         for (const el of document.querySelectorAll('.form-behavior')) {
             new FormBehavior(el);
+        }
+
+        for (const el of document.querySelectorAll('.menu-button')) {
+            new MenuButtonBehavior(el);
         }
     });
 };

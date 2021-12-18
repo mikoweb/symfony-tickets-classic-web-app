@@ -37,7 +37,29 @@
                         <h1 class="app-top-bar__title">Symfony Tickets</h1>
                     </div>
                     <div class="app-top-bar__actions">
-                        <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
+                        <div class="menu-button" slot="actionItems">
+                            <mwc-icon-button icon="person" class="menu-button__button" wc-lazy></mwc-icon-button>
+                            <mwc-menu class="menu-button__menu" fixed wc-lazy>
+                                <mwc-list-item twoline graphic="avatar" noninteractive>
+                                    <span>User Name</span>
+                                    <span slot="secondary">user@domain.tld</span>
+                                    <mwc-icon slot="graphic" class="inverted">tag_faces</mwc-icon>
+                                </mwc-list-item>
+                                <li divider role="separator"></li>
+                                <mwc-list-item graphic="icon">
+                                    <slot>FAQ</slot>
+                                    <mwc-icon slot="graphic">help_outline</mwc-icon>
+                                </mwc-list-item>
+                                <a href="/sites">
+                                    <mwc-list-item graphic="icon">
+                                        <slot>
+                                            Sign out
+                                        </slot>
+                                        <mwc-icon slot="graphic">exit_to_app</mwc-icon>
+                                    </mwc-list-item>
+                                </a>
+                            </mwc-menu>
+                        </div>
                     </div>
                 </header>
             </mwc-top-app-bar>
