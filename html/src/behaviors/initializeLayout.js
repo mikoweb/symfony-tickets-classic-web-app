@@ -1,14 +1,20 @@
 import layoutReady from './layoutReady.js';
-import DrawerToggle from './layout/DrawerToggle.js';
-import AppProgress from './layout/AppProgress.js';
+import DrawerToggleBehavior from './layout/DrawerToggleBehavior.js';
+import AppProgressBehavior from './layout/AppProgressBehavior.js';
 import FormBehavior from './FormBehavior.js';
+import AppDrawerBehavior from './layout/AppDrawerBehavior';
 
 export default () => {
     layoutReady(() => {
-        const progress = document.querySelector('#app-progress');
+        const progress = document.querySelector('#appProgress');
+        const drawer = document.querySelector('#appDrawer');
 
         if (progress !== null) {
-            new AppProgress(progress);
+            new AppProgressBehavior(progress);
+        }
+
+        if (drawer !== null) {
+            new AppDrawerBehavior(drawer);
         }
 
         for (const el of document.querySelectorAll('*[wc-hidden], *[wc-lazy], *[wc-ready]')) {
@@ -16,7 +22,7 @@ export default () => {
         }
 
         for (const el of document.querySelectorAll('.app-drawer-toggle')) {
-            new DrawerToggle(el);
+            new DrawerToggleBehavior(el);
         }
 
         for (const el of document.querySelectorAll('.form-behavior')) {

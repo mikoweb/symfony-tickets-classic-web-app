@@ -1,6 +1,6 @@
 import Behavior from '../Behavior.js';
 
-export default class DrawerToggle extends Behavior {
+export default class DrawerToggleBehavior extends Behavior {
     /**
      * Event listeners.
      *

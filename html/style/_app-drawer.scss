@@ -1,16 +1,95 @@
 .app-drawer {
+  --mdc-drawer-width: #{$app-drawer-width};
+  --app-drawer-right-border: 1px solid rgba(0, 0, 0, 0.12);
+  --mdc-theme-surface: #{$app-drawer-background};
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
   &.ready {
+    .app-drawer__body {
+      width: auto;
+      border-right: 0 none;
+      min-height: 0;
+      overflow: visible;
+      background: none;
+
+      * {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  &__heading {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1000;
+    width: var(--mdc-drawer-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    background: #fff;
+    padding: $app-drawer-padding;
+    height: $app-header-height;
+    transition: opacity 0s !important;
   }
 
-  &__menu-button {
-    padding: 8px 0;
-    margin-left: -10px;
+  &__title {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 1.35rem;
   }
 
   &__content {
-    padding: 0 16px;
+    position: relative;
+    top: $app-header-height;
+    left: 0;
+    padding: $app-drawer-padding;
+  }
+
+  &__body {
+    width: var(--mdc-drawer-width);
+    border-right: var(--app-drawer-right-border);
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--mdc-theme-surface);
+
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+
+    * {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 1s;
+    }
+  }
+
+  &__main {
+    flex: 1;
+    margin-top: $app-header-height;
+    max-height: 100vh;
+    overflow-y: scroll;
+  }
+}
+
+.ready {
+  .app-drawer {
+    &__body {
+      display: block;
+    }
+
+    &__main {
+      margin-top: 0;
+      max-height: none;
+      overflow-y: visible;
+    }
   }
 }

@@ -1,11 +1,13 @@
 // Fonts
 @import "fonts/material-icons";
 
+// Colors
+@import "~material-design-color/material-color";
+
 // Variables
 @import "variables";
 
 // Libraries
-@import "~material-design-color/material-color";
 @import "bootstrap";
 
 // Web Components
@@ -14,10 +16,10 @@
 
 // Layout
 @import "html";
-@import "header";
 @import "main";
 @import "app-drawer";
 @import "app-progress";
+@import "app-top-bar";
 @import "login";
 
 // No JS

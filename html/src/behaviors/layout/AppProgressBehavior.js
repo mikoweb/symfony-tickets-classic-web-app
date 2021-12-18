@@ -1,7 +1,7 @@
 import layoutReady from '../layoutReady.js';
 import Behavior from '../Behavior.js';
 
-export default class AppProgress extends Behavior {
+export default class AppProgressBehavior extends Behavior {
     /**
      * @param {HTMLElement} htmlElement
      * @param {number} defaultProgress

@@ -9,37 +9,51 @@
     <link href="../bundle/style.css" rel="stylesheet">
 </head>
 <body>
-    <mwc-linear-progress progress="0" wc-ready class="app-progress active" id="app-progress"></mwc-linear-progress>
-    <header class="header">
-        <div class="header-toolbar">
-            <mwc-icon-button icon="menu"
-                             class="header-toolbar__item app-drawer-toggle"
-                             data-drawer-id="appDrawer"
-                             aria-label="Open Menu"
-                             role="button"></mwc-icon-button>
-            <h1 class="header__title header-toolbar__item header__title">App Name</h1>
-            <app-username-display class="header-toolbar__item header-toolbar__hello"></app-username-display>
-        </div>
-    </header>
-    <mwc-drawer hasHeader type="modal" wc-hidden class="app-drawer" id="appDrawer">
-            <span slot="title">
-                <mwc-icon-button icon="menu"
-                                 class="app-drawer__menu-button app-drawer-toggle"
-                                 data-drawer-id="appDrawer"
-                                 aria-label="Open Menu"
-                                 role="button"></mwc-icon-button>
-            </span>
-        <div class="app-drawer__content">
-            <p>Drawer content!</p>
-            <mwc-icon-button icon="gesture"></mwc-icon-button>
-            <mwc-icon-button icon="gavel"></mwc-icon-button>
+    <mwc-linear-progress progress="0" wc-ready class="app-progress active" id="appProgress"></mwc-linear-progress>
+    <mwc-drawer class="app-drawer" id="appDrawer" wc-ready>
+        <section class="app-drawer__body">
+            <div class="app-drawer__heading">
+                <h2 class="app-drawer__title">
+                    Client Panel
+                </h2>
+            </div>
+            <div class="app-drawer__content">
+                <p>Drawer content!</p>
+                <mwc-icon-button icon="gesture"></mwc-icon-button>
+                <mwc-icon-button icon="gavel"></mwc-icon-button>
+            </div>
+        </section>
+        <div slot="appContent" class="app-drawer__main">
+            <mwc-top-app-bar class="app-top-bar">
+                <mwc-icon-button role="button"
+                                 aria-label="open menu"
+                                 icon="menu"
+                                 slot="navigationIcon"
+                                 class="app-top-bar__menu-button app-drawer-toggle"
+                                 data-drawer-id="appDrawer">
+                </mwc-icon-button>
+                <header slot="title" class="app-top-bar__content">
+                    <div>
+                        <h1 class="app-top-bar__title">Symfony Tickets</h1>
+                    </div>
+                    <div class="app-top-bar__actions">
+                        <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
+                    </div>
+                </header>
+            </mwc-top-app-bar>
+            <main class="main">
+                <h3 class="h3">Index Page</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+                    Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+            </main>
         </div>
     </mwc-drawer>
-    <main class="main">
-        <div class="container">
-            <h2 class="h2">Index Page</h2>
-        </div>
-    </main>
     <script type="module" src="../src/index.js"></script>
 </body>
 </html>
