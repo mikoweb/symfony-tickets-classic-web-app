@@ -1,0 +1,43 @@
+.breadcrumb {
+  display: flex;
+  flex-direction: row;
+  margin: 30px 0;
+  line-height: 1;
+  font-size: 1rem;
+  align-items: center;
+  color: #000;
+
+  mwc-icon {
+    display: block;
+    --mdc-icon-size: 20px;
+    overflow: hidden;
+    width: var(--mdc-icon-size);
+    height: var(--mdc-icon-size);
+  }
+
+  a {
+    color: $clr-red-700;
+  }
+
+  > * {
+    margin: 0 3px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__separator {
+    color: $clr-grey-500;
+    font-size: 0.7rem;
+    margin: 0 8px;
+  }
+}
+
+span.breadcrumb__path {
+  font-weight: 600;
+}
+
+.main > .breadcrumb:first-child {
+  margin-top: -5px;
+}

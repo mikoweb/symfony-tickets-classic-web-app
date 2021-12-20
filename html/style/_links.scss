@@ -1,0 +1,9 @@
+a {
+  text-decoration: none;
+  color: $clr-red-700;
+
+  &:hover {
+    color: $clr-red-700;
+    text-decoration: underline;
+  }
+}
