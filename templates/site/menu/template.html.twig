@@ -1,1 +1,29 @@
 {% extends 'knp_menu.html.twig' %}
+
+{% block linkElement %}
+    {% import _self as knp_menu %}
+    {% if item.children|length == 0 and item.extras.icon_class is defined %}
+        <mwc-icon wc-lazy>{{ item.extras.icon_class }}</mwc-icon>
+    {% endif %}
+    {% if item.children|length > 0 %}
+        <div class="submenu-title">
+    {% endif %}
+    <a href="{{ item.uri }}"{{ knp_menu.attributes(item.linkAttributes) }}>{{ block('label') }}</a>
+    {% if item.children|length > 0 %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block spanElement %}
+    {% import _self as knp_menu %}
+    {% if item.children|length == 0 and item.extras.icon_class is defined %}
+        <mwc-icon wc-lazy>{{ item.extras.icon_class }}</mwc-icon>
+    {% endif %}
+    {% if item.children|length > 0 %}
+        <div class="submenu-title">
+    {% endif %}
+    <span{{ knp_menu.attributes(item.labelAttributes) }}>{{ block('label') }}</span>
+    {% if item.children|length > 0 %}
+        </div>
+    {% endif %}
+{% endblock %}
