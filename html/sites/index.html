@@ -18,9 +18,31 @@
                 </h2>
             </div>
             <div class="app-drawer__content">
-                <p>Drawer content!</p>
-                <mwc-icon-button icon="gesture"></mwc-icon-button>
-                <mwc-icon-button icon="gavel"></mwc-icon-button>
+                <nav class="drawer-nav">
+                    <ul>
+                        <li>
+                            <a href="/sites/">
+                                <mwc-icon wc-lazy>dashboard</mwc-icon>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="active open">
+                            <div class="submenu-title">
+                                <a href="/sites/">
+                                    Zgłoszenia
+                                </a>
+                            </div>
+                            <ul class="menu_level_1">
+                                <li class="active first last">
+                                    <a href="/sites/">
+                                        <mwc-icon wc-lazy>add_circle_outline</mwc-icon>
+                                        <span>Utwórz zgłoszenie</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </section>
         <div slot="appContent" class="app-drawer__main">
@@ -81,7 +103,7 @@
                         Utwórz zgłoszenie
                     </span>
                 </div>
-                <h3 class="h3">Index Page</h3>
+                <h3 class="h3">Utwórz zgłoszenie</h3>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                     when an unknown printer took a galley of type and scrambled it to make a type specimen book.
