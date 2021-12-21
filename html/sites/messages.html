@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <script>document.querySelector('html').classList.remove('no-js');</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index page</title>
+    <link rel="icon" href="./favicon.svg">
+    <link href="../bundle/style.css" rel="stylesheet">
+</head>
+<body>
+    <mwc-linear-progress progress="0" wc-ready class="app-progress active" id="appProgress"></mwc-linear-progress>
+    <app-toast duration="10000" type="error" dismissible message="Error text"></app-toast>
+    <app-toast duration="10000" type="success" dismissible message="Success text"></app-toast>
+    <app-toast duration="10000" type="warning" dismissible message="Warning text"></app-toast>
+    <app-toast duration="10000" type="info" dismissible message="Info text"></app-toast>
+    <app-toast duration="10000" type="message" dismissible message="Message"></app-toast>
+    <script type="module" src="../src/index.js"></script>
+</body>
+</html>

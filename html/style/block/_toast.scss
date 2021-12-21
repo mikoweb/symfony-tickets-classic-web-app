@@ -1,0 +1,26 @@
+@import "~notyf/notyf.min";
+
+.toast-message {
+  --toast-background: #{$clr-grey-800};
+  color: #fff;
+}
+
+.toast-error {
+  --toast-background: #{$clr-red-800};
+  color: #fff;
+}
+
+.toast-success {
+  --toast-background: #{$clr-green-800};
+  color: #fff;
+}
+
+.toast-info {
+  --toast-background: #{$clr-blue-300};
+  color: #fff;
+}
+
+.toast-warning {
+  --toast-background: #{$clr-orange-800};
+  color: #fff;
+}
