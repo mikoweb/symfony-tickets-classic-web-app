@@ -103,15 +103,71 @@
                         Utwórz zgłoszenie
                     </span>
                 </div>
-                <h3 class="h3">Utwórz zgłoszenie</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-                    Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
+                <section>
+                    <h3 class="h3 panel-title">Utwórz zgłoszenie</h3>
+                    <div class="form-box form-box--min-height-400">
+                        <form enctype="multipart/form-data" method="post" class="form-behavior">
+                            <div class="form-row">
+                                <mwc-select
+                                        wc-lazy
+                                        fullwidth
+                                        label="Temat"
+                                        name="ticket[topic]"
+                                        required>
+                                    <mwc-list-item value="bf98da8c-d384-4ffb-9e40-090f791c3806">Topic 1</mwc-list-item>
+                                    <mwc-list-item value="6d984706-c235-48b0-9c08-f4ec712d8686">Topic 2</mwc-list-item>
+                                    <mwc-list-item value="4e8606f6-56f1-4104-bdc8-6827277302ea">Topic 3</mwc-list-item>
+                                </mwc-select>
+                            </div>
+                            <div class="form-row">
+                                <mwc-textfield
+                                        wc-lazy
+                                        fullwidth
+                                        label="Tytuł"
+                                        type="text"
+                                        name="ticket[title]"
+                                        required>
+                                </mwc-textfield>
+                            </div>
+                            <div class="form-row">
+                                <mwc-textfield
+                                        wc-lazy
+                                        fullwidth
+                                        label="E-mail"
+                                        type="email"
+                                        name="ticket[email]"
+                                        required>
+                                </mwc-textfield>
+                            </div>
+                            <div class="form-row">
+                                <mwc-textarea
+                                        wc-lazy
+                                        fullwidth
+                                        label="Wiadomość"
+                                        name="ticket[text]"
+                                        required
+                                        rows="5"
+                                        cols="40">
+                                </mwc-textarea>
+                            </div>
+                            <div class="form-row">
+                                <app-file-input wc-lazy label="Dodaj załącznik" icon="add_circle_outline">
+                                    <input type="file"
+                                           name="ticket[file]"
+                                           accept="application/pdf,application/x-pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.oasis.opendocument.text,image/jpeg,image/png">
+                                </app-file-input>
+                            </div>
+                            <div class="form-row">
+                                <mwc-button raised
+                                            label="Wyślij"
+                                            type="submit"
+                                            name="ticket[send]"
+                                            wc-lazy>
+                                </mwc-button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
             </main>
         </div>
     </mwc-drawer>

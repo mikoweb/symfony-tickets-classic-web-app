@@ -11,3 +11,8 @@ import '@material/mwc-button/mwc-button.js';
 import '@material/mwc-list/mwc-list.js';
 import '@material/mwc-list/mwc-list-item.js';
 import '@material/mwc-menu/mwc-menu.js';
+import '@material/mwc-textarea/mwc-textarea.js';
+import '@material/mwc-select/mwc-select.js';
+
+// internal - global scope
+import '../elements/app-file-input/app-file-input.js';

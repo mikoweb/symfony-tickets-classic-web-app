@@ -1,0 +1,25 @@
+.app-file-input {
+  &__native {
+    display: none;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__file-text {
+    color: #666;
+    font-size: 0.9rem;
+    margin-left: 15px;
+  }
+
+  &__clear {
+    --mdc-icon-button-size: 24px;
+    margin: 0 5px;
+    width: var(--mdc-icon-button-size);
+    height: var(--mdc-icon-button-size);
+  }
+}
