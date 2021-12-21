@@ -12897,7 +12897,6 @@
 
     // components bundles
 
-
     initializeLayout();
 
     window.App = {

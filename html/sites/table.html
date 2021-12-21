@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <script>document.querySelector('html').classList.remove('no-js');</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index page</title>
+    <link rel="icon" href="./favicon.svg">
+    <link href="../bundle/style.css" rel="stylesheet">
+</head>
+<body>
+    <mwc-linear-progress progress="0" wc-ready class="app-progress active" id="appProgress"></mwc-linear-progress>
+    <mwc-drawer class="app-drawer" id="appDrawer" wc-ready>
+        <section class="app-drawer__body">
+            <div class="app-drawer__heading">
+                <h2 class="app-drawer__title">
+                    Client Panel
+                </h2>
+            </div>
+            <div class="app-drawer__content">
+                <nav class="drawer-nav">
+                </nav>
+            </div>
+        </section>
+        <div slot="appContent" class="app-drawer__main">
+            <mwc-top-app-bar class="app-top-bar">
+                <mwc-icon-button role="button"
+                                 aria-label="open menu"
+                                 icon="menu"
+                                 slot="navigationIcon"
+                                 class="app-top-bar__menu-button app-drawer-toggle"
+                                 data-drawer-id="appDrawer">
+                </mwc-icon-button>
+                <header slot="title" class="app-top-bar__content">
+                    <div>
+                        <h1 class="app-top-bar__title">Symfony Tickets</h1>
+                    </div>
+                    <div class="app-top-bar__actions">
+                    </div>
+                </header>
+            </mwc-top-app-bar>
+            <main class="main">
+                <section>
+                    <h3 class="h3 panel-title">Zgłoszenia</h3>
+                </section>
+            </main>
+        </div>
+    </mwc-drawer>
+    <script type="module" src="../src/index.js"></script>
+</body>
+</html>
