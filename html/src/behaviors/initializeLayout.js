@@ -2,8 +2,8 @@ import layoutReady from './layoutReady.js';
 import DrawerToggleBehavior from './layout/DrawerToggleBehavior.js';
 import AppProgressBehavior from './layout/AppProgressBehavior.js';
 import FormBehavior from './FormBehavior.js';
-import AppDrawerBehavior from './layout/AppDrawerBehavior';
-import MenuButtonBehavior from './elements/MenuButtonBehavior';
+import AppDrawerBehavior from './layout/AppDrawerBehavior.js';
+import MenuButtonBehavior from './elements/MenuButtonBehavior.js';
 
 export default () => {
     layoutReady(() => {

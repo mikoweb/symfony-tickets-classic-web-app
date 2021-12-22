@@ -17,3 +17,5 @@ import '@material/mwc-select/mwc-select.js';
 // internal - global scope
 import '../elements/app-file-input/app-file-input.js';
 import '../elements/app-toast/app-toast.js';
+import '../elements/app-rwd-table/app-rwd-table.js';
+import '../elements/app-action-button/app-action-button.js';

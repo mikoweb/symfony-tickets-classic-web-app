@@ -1,0 +1,16 @@
+app-action-button.button-table {
+  --app-action-button-min-width: 0;
+  --app-action-button-height: 24px;
+  --app-action-button-horizontal-padding: 10px;
+  --app-action-button-font-size: 0.7rem;
+  margin: 0 10px;
+  display: inline-block;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

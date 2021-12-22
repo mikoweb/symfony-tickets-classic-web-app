@@ -3,6 +3,10 @@ body {
 }
 
 mwc-icon-button {
-  width: 48px;
-  height: 48px;
+  width: var(--mdc-icon-button-size);
+  height: var(--mdc-icon-button-size);
+}
+
+mwc-icon-button.icon-button-24 {
+  --mdc-icon-button-size: 24px;
 }
