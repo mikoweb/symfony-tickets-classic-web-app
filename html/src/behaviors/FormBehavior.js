@@ -23,6 +23,12 @@ export default class FormBehavior extends Behavior {
     constructor(form) {
         super(form);
         form.setAttribute('novalidate', 'novalidate');
+
+        for (const el of form.querySelectorAll('*[invalid]')) {
+            if (typeof el.reportValidity === 'function') {
+                el.reportValidity();
+            }
+        }
     }
 
     /**

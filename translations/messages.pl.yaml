@@ -9,7 +9,7 @@ site:
             title: Tytuł
             email: E-mail
             text: Wiadomość
-            file: Plik
+            file: Dodaj załącznik
             send: Wyślij
             invalid_file: Nieobsługiwany typ pliku.
     message:

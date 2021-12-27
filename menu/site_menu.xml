@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menu>
-    <item role="ROLE_CLIENT" route="app_site_index" icon-class="icons:home" />
-    <item role="ROLE_TICKETS_LIST"
-          route="app_site_ticket_index"
-          icon-class="icons:ticket">
-        <item role="ROLE_TICKET_CREATE" route="app_site_ticket_create" />
+    <item role="ROLE_CLIENT" route="app_site_index" icon-class="dashboard" />
+    <item role="ROLE_TICKETS_LIST" route="app_site_ticket_index">
+        <item role="ROLE_TICKET_CREATE" route="app_site_ticket_create" icon-class="add_circle_outline" />
     </item>
-    <item role="ROLE_CLIENT" route="app_site_logout" icon-class="icons:logout" />
+    <item role="ROLE_CLIENT" route="app_site_logout" icon-class="exit_to_app" />
+    <item role="ROLE_CLIENT" route="app_admin_index" icon-class="admin_panel_settings" />
 </menu>

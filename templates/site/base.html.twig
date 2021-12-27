@@ -6,32 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Tickets{% endblock %}</title>
     <link rel="icon" href="{{ asset('favicon.svg') }}">
+    <link href="{{ asset('bundle/style.css') }}" rel="stylesheet">
     {% block stylesheets %}{% endblock %}
 </head>
-<body>
+<body{% block body_attrs %}{% endblock %}>
+    <mwc-linear-progress progress="0" wc-ready class="app-progress active" id="appProgress"></mwc-linear-progress>
     {% block flashes %}
         {% for message in app.flashes('site_success') %}
-            <p>
-                <strong>{{ message }}</strong>
-            </p>
+            <app-toast duration="10000" type="success" dismissible message="{{ message }}"></app-toast>
         {% endfor %}
         {% for message in app.flashes('site_error') %}
-            <p>
-                <strong>{{ message }}</strong>
-            </p>
+            <app-toast duration="10000" type="error" dismissible message="{{ message }}"></app-toast>
         {% endfor %}
     {% endblock %}
-    {{ knp_menu_render('app_site_menu', {
-        'template': 'site/menu/template.html.twig',
-        'currentClass': 'active',
-        'ancestorClass': 'active open',
-        'compressed': true
-    }) }}
-    {{ knp_menu_render('app_site_menu', {
-        'template': 'site/menu/breadcrumb.html.twig',
-        'compressed': true
-    }) }}
     {% block body %}{% endblock %}
+    <script src="{{ asset('bundle/app.min.js') }}"></script>
     {% block javascripts %}{% endblock %}
 </body>
 </html>

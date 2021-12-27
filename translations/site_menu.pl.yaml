@@ -1,5 +1,6 @@
 routes:
     app_site_logout: Wyloguj
-    app_site_index: Strona główna
+    app_site_index: Dashboard
     app_site_ticket_index: Zgłoszenia
     app_site_ticket_create: Utwórz zgłoszenie
+    app_admin_index: Panel admina

@@ -1,16 +1,35 @@
 {% extends 'site/base.html.twig' %}
 
+{% block body_attrs %} class="body-login"{% endblock %}
+
 {% block body %}
     {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <app-toast duration="10000"
+                   type="error"
+                   dismissible
+                   message="{{ error.messageKey|trans(error.messageData, 'security') }}">
+        </app-toast>
     {% endif %}
-    {{ form_start(form) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.password) }}
-        {{ form_row(form.remember_me) }}
-        <input type="hidden" name="_target_path" value="{{ path('app_site_index') }}"/>
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-        <button type="submit">Login</button>
-        {{ form_rest(form) }}
-    {{ form_end(form) }}
+    <div class="container">
+        <section class="login-window">
+            <h2 class="h2 login-window__title">Logowanie</h2>
+            {{ form_start(form, {'attr': {'class': 'login-window__form form-behavior'}}) }}
+                <div class="login-window__field">
+                    {{ form_widget(form.email, {'attr': {'outlined': 'outlined'}}) }}
+                </div>
+                <div class="login-window__field">
+                    {{ form_widget(form.password, {'attr': {'outlined': 'outlined'}}) }}
+                </div>
+                <div class="login-window__remember-me">
+                    {{ form_widget(form.remember_me) }}
+                </div>
+                <input type="hidden" name="_target_path" value="{{ path('app_site_index') }}"/>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <div class="login-window__button">
+                    <mwc-button raised label="Zaloguj się" type="submit" wc-lazy></mwc-button>
+                </div>
+                {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </section>
+    </div>
 {% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'site/base.html.twig' %}
+
+{% block body %}
+    <mwc-drawer class="app-drawer" id="appDrawer" wc-ready>
+        <section class="app-drawer__body">
+            <div class="app-drawer__heading">
+                <h2 class="app-drawer__title">
+                    Client Panel
+                </h2>
+            </div>
+            <div class="app-drawer__content">
+                <nav class="drawer-nav">
+                    {{ knp_menu_render('app_site_menu', {
+                        'template': 'site/menu/template.html.twig',
+                        'currentClass': 'active',
+                        'ancestorClass': 'active open',
+                        'compressed': true
+                    }) }}
+                </nav>
+            </div>
+        </section>
+        <div slot="appContent" class="app-drawer__main">
+            <mwc-top-app-bar class="app-top-bar">
+                <mwc-icon-button role="button"
+                                 aria-label="open menu"
+                                 icon="menu"
+                                 slot="navigationIcon"
+                                 class="app-top-bar__menu-button app-drawer-toggle"
+                                 data-drawer-id="appDrawer">
+                </mwc-icon-button>
+                <header slot="title" class="app-top-bar__content">
+                    <div>
+                        <h1 class="app-top-bar__title">Symfony Tickets</h1>
+                    </div>
+                    <div class="app-top-bar__actions">
+                        <div class="menu-button" slot="actionItems">
+                            <mwc-icon-button icon="person" class="menu-button__button" wc-lazy></mwc-icon-button>
+                            <mwc-menu class="menu-button__menu" fixed wc-lazy>
+                                <mwc-list-item twoline graphic="avatar" noninteractive>
+                                    <span>Użytkownik</span>
+                                    <span slot="secondary">{{ app.user.email }}</span>
+                                    <mwc-icon slot="graphic" class="inverted">tag_faces</mwc-icon>
+                                </mwc-list-item>
+                                <li divider role="separator"></li>
+                                <mwc-list-item graphic="icon">
+                                    <slot>FAQ</slot>
+                                    <mwc-icon slot="graphic">help_outline</mwc-icon>
+                                </mwc-list-item>
+                                <a href="{{ path('app_site_logout') }}">
+                                    <mwc-list-item graphic="icon">
+                                        <slot>
+                                            Wyloguj
+                                        </slot>
+                                        <mwc-icon slot="graphic">exit_to_app</mwc-icon>
+                                    </mwc-list-item>
+                                </a>
+                            </mwc-menu>
+                        </div>
+                    </div>
+                </header>
+            </mwc-top-app-bar>
+            <main class="main">
+                {{ knp_menu_render('app_site_menu', {
+                    'template': 'site/menu/breadcrumb.html.twig',
+                    'compressed': true
+                }) }}
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </mwc-drawer>
+{% endblock %}

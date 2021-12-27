@@ -1,6 +1,10 @@
-{% extends 'site/base.html.twig' %}
+{% extends 'site/layout.html.twig' %}
 
-{% block body %}
-    <h2>Utwórz ticket</h2>
-    {{ form(form) }}
+{% block content %}
+    <section>
+        <h3 class="h3 panel-title">Utwórz zgłoszenie</h3>
+        <div class="form-box form-box--min-height-400">
+            {{ form(form, {'attr': {'class': 'login-window__form form-behavior'}}) }}
+        </div>
+    </section>
 {% endblock %}

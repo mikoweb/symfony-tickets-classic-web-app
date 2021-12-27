@@ -1,0 +1,137 @@
+{% use "form_div_layout.html.twig" %}
+
+{%- block form_mwc_label -%}
+    {%- if translation_domain is same as(false) -%}
+        {{- label -}}
+    {%- else -%}
+        {{- label|trans({}, translation_domain) -}}
+    {%- endif -%}
+{%- endblock form_mwc_label -%}
+
+{%- block form_widget_simple -%}
+    {%- set type = type|default('text') -%}
+    <mwc-textfield
+            wc-lazy
+            fullwidth
+            label="{{- block('form_mwc_label') -}}"
+            type="{{ type }}"
+            {{ block('widget_attributes') }} {% if value is not empty and errors|length == 0 %}value="{{ value }}" {% endif %}>
+    </mwc-textfield>
+{%- endblock form_widget_simple -%}
+
+{%- block textarea_widget -%}
+    <mwc-textarea
+            wc-lazy
+            fullwidth
+            label="{{- block('form_mwc_label') -}}"
+            {{ block('widget_attributes') }}
+            {% if errors|length == 0 %}value="{{ value }}" {% endif %}
+            rows="5"
+            cols="40">
+    </mwc-textarea>
+{%- endblock textarea_widget -%}
+
+{%- block checkbox_widget -%}
+    <mwc-formfield label="{{- block('form_mwc_label') -}}" wc-lazy>
+        <mwc-checkbox {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %}></mwc-checkbox>
+    </mwc-formfield>
+{%- endblock checkbox_widget -%}
+
+{%- block radio_widget -%}
+    <mwc-formfield label="{{- block('form_mwc_label') -}}">
+        <mwc-radio {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %}></mwc-radio>
+    </mwc-formfield>
+{%- endblock radio_widget -%}
+
+{%- block hidden_widget -%}
+    <input type="hidden" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{%- endblock hidden_widget -%}
+
+{%- block button_widget -%}
+    {%- if label is empty -%}
+        {%- if label_format is not empty -%}
+            {% set label = label_format|replace({
+                '%name%': name,
+                '%id%': id,
+            }) %}
+        {%- elseif label is same as(false) -%}
+            {% set translation_domain = false %}
+        {%- else -%}
+            {% set label = name|humanize %}
+        {%- endif -%}
+    {%- endif -%}
+    <mwc-button label="{{- block('form_mwc_label') -}}" raised type="{{ type|default('button') }}" {{ block('button_attributes') }}></mwc-button>
+{%- endblock button_widget -%}
+
+{%- block form_row -%}
+    <div class="form-row">
+        {%- set widget_attr = {} -%}
+        {%- if help is not empty -%}
+            {%- set widget_attr = {attr: {'aria-describedby': id ~"_help"}} -%}
+        {%- endif -%}
+        {{- form_errors(form) -}}
+        {{- form_widget(form, widget_attr) -}}
+        {{- form_help(form) -}}
+    </div>
+{%- endblock form_row -%}
+
+{%- block button_row -%}
+    <div class="form-row"{% with {attr: row_attr} %}{{ block('attributes') }}{% endwith %}>
+        {{- form_widget(form) -}}
+    </div>
+{%- endblock button_row -%}
+
+{%- block form_errors -%}
+{%- endblock form_errors -%}
+
+{%- block widget_attributes -%}
+    id="{{ id }}" name="{{ full_name }}"
+    {%- if disabled %} disabled="disabled"{% endif -%}
+    {%- if required %} required="required"{% endif -%}
+    {{ block('attributes') }}
+    {%- if errors|length > 0 -%} invalid validationMessage="{{ errors[0].message }}"{%- endif -%}
+{%- endblock widget_attributes -%}
+
+{%- block choice_widget_collapsed -%}
+    {%- if required and placeholder is none and not placeholder_in_choices and not multiple and (attr.size is not defined or attr.size <= 1) -%}
+        {% set required = false %}
+    {%- endif -%}
+    {% if multiple %}
+        {# TODO implement multiple choice #}
+    {% else %}
+        <mwc-select wc-lazy fullwidth label="{{- block('form_mwc_label') -}}" {% if form.vars.disabled %} disabled{% endif %}{% if form.vars.required %} required{% endif %} {{ block('widget_attributes') }}>
+            {%- if placeholder is not none -%}
+                <mwc-list-item value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ placeholder != '' ? (translation_domain is same as(false) ? placeholder : placeholder|trans({}, translation_domain)) }}</mwc-list-item>
+            {%- endif -%}
+            {%- if preferred_choices|length > 0 -%}
+                {% set options = preferred_choices %}
+                {% set render_preferred_choices = true %}
+                {{- block('choice_widget_options') -}}
+                {%- if choices|length > 0 and separator is not none -%}
+                    <mwc-list-item disabled="disabled">{{ separator }}</mwc-list-item>
+                {%- endif -%}
+            {%- endif -%}
+            {%- set options = choices -%}
+            {%- set render_preferred_choices = false -%}
+            {{- block('choice_widget_options') -}}
+        </mwc-select>
+    {% endif %}
+{%- endblock choice_widget_collapsed -%}
+
+{%- block choice_widget_options -%}
+    {% for group_label, choice in options %}
+        {%- if choice is iterable -%}
+            <mwc-list-item disabled="disabled">{{ choice_translation_domain is same as(false) ? group_label : group_label|trans({}, choice_translation_domain) }}</mwc-list-item>
+            {{- block('choice_widget_options') -}}
+        {%- else -%}
+            <mwc-list-item value="{{ choice.value }}"{% if choice.attr %}{% with { attr: choice.attr } %}{{ block('attributes') }}{% endwith %}{% endif %}{% if not render_preferred_choices|default(false) and choice is selectedchoice(value) %} selected="selected"{% endif %}>{{ choice_translation_domain is same as(false) ? choice.label : choice.label|trans(choice.labelTranslationParameters, choice_translation_domain) }}</mwc-list-item>
+        {%- endif -%}
+    {% endfor %}
+{%- endblock choice_widget_options -%}
+
+{%- block file_widget -%}
+    <app-file-input wc-lazy label="{{- block('form_mwc_label') -}}" icon="add_circle_outline">
+        {%- set type = type|default('file') -%}
+        <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+    </app-file-input>
+{%- endblock file_widget -%}
