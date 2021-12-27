@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Tickets - Admin Panel{% endblock %}</title>
     <link rel="icon" href="{{ asset('favicon.svg') }}">
+    <link href="{{ asset('bundle/style.css') }}" rel="stylesheet">
     {% block stylesheets %}{% endblock %}
 </head>
-<body>
-    {{ knp_menu_render('app_admin_menu', {
-        'template': 'admin/menu/template.html.twig',
-        'currentClass': 'active',
-        'ancestorClass': 'active open',
-        'compressed': true
-    }) }}
-    {{ knp_menu_render('app_admin_menu', {
-        'template': 'admin/menu/breadcrumb.html.twig',
-        'compressed': true
-    }) }}
+<body{% block body_attrs %}{% endblock %}>
+    {% block flashes %}
+        {% for message in app.flashes('admin_success') %}
+            <app-toast duration="10000" type="success" dismissible message="{{ message }}"></app-toast>
+        {% endfor %}
+        {% for message in app.flashes('admin_error') %}
+            <app-toast duration="10000" type="error" dismissible message="{{ message }}"></app-toast>
+        {% endfor %}
+    {% endblock %}
     {% block body %}{% endblock %}
+    <script src="{{ asset('bundle/app.min.js') }}"></script>
     {% block javascripts %}{% endblock %}
 </body>
 </html>

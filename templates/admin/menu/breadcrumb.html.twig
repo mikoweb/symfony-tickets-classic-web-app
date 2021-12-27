@@ -11,10 +11,10 @@
             {% for breadcrumb in breadcrumbs %}
                 {% if loop.first %}
                     <a href="{{ path('app_admin_index') }}">
-                        ⌂
+                        <mwc-icon wc-lazy>home</mwc-icon>
                     </a>
                     <span class="breadcrumb__separator">
-                        ›
+                        /
                     </span>
                 {% elseif loop.last %}
                     <span class="breadcrumb__path">
@@ -31,7 +31,7 @@
                         </span>
                     {% endif %}
                     <span class="breadcrumb__separator">
-                        ›
+                        /
                     </span>
                 {% endif %}
             {% endfor %}

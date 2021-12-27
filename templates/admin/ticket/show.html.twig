@@ -1,26 +1,45 @@
-{% extends 'admin/base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
-{% block body %}
-    <dl>
-        <dt>Id</dt>
-        <dd>{{ ticket.id }}</dd>
-        <dt>Tytuł</dt>
-        <dd>{{ ticket.title }}</dd>
-        <dt>Temat</dt>
-        <dd>{{ ticket.topic.name }}</dd>
-        <dt>Slug</dt>
-        <dd>{{ ticket.slug }}</dd>
-        <dt>Email</dt>
-        <dd>{{ ticket.email }}</dd>
-        <dt>Wiadomość</dt>
-        <dd>{{ ticket.text|nl2br }}</dd>
-        {% if ticket.filename is not null %}
-            <dt>Plik</dt>
-            <dd>
-                <a target="_blank" href="{{ asset('uploads/' ~ ticket.filename) }}">
-                    {{ ticket.filename }}
-                </a>
-            </dd>
-        {% endif %}
-    </dl>
+{% block content %}
+    <section>
+        <h3 class="h3 panel-title">Szczegóły zgłoszenia</h3>
+        <table class="table table-striped table-hover">
+            <tbody>
+                <tr>
+                    <th scope="row">Id</th>
+                    <td>{{ ticket.id }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Tytuł</th>
+                    <td>{{ ticket.title }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Slug</th>
+                    <td>{{ ticket.slug }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Temat</th>
+                    <td>{{ ticket.topic.name }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Email</th>
+                    <td>{{ ticket.email }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Wiadomość</th>
+                    <td>
+                        {{ ticket.text|nl2br }}
+                    </td>
+                </tr>
+                {% if ticket.filename is not null %}
+                    <tr>
+                        <th scope="row">Plik</th>
+                        <td>
+                            <a target="_blank" href="{{ asset('uploads/' ~ ticket.filename) }}">{{ ticket.filename }}</a>
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </section>
 {% endblock %}
